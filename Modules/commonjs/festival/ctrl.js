@@ -1,4 +1,3 @@
-
 const { Festival } = require('./festival');
 const { Movie } = require('./movie');
 const { Program } = require('./program');

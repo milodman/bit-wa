@@ -23,7 +23,7 @@ const createPostDiv = (post) => {
 // }
 
 
-export{
+export {
     createPostDiv,
     displayError
 }
