@@ -39,6 +39,7 @@ const Main = props => {
         </div>
     )
 }
+
 const App = ({ data }) => {
     // const { data } = props
     return (
@@ -49,15 +50,7 @@ const App = ({ data }) => {
     )
 }
 
-
-
 ReactDOM.render(
     <App data={posts} />,
     document.querySelector(".root")
 )
-
-
-
-
-
-

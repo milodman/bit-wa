@@ -8,14 +8,6 @@ const createProducts = () => {
     return myProducts;
 }
 
-const App = () => {
-    return (
-        <div>
-            <h1>Hi from React</h1>
-            <ShoppingList />
-        </div>
-    )
-}
 
 const ShoppingList = () => {
     return (
@@ -26,10 +18,18 @@ const ShoppingList = () => {
 }
 
 const Product = (props) => {
-
+    
     const {name,index} =props
     return <li key={index}>{name}</li>
 }
 
+const App = () => {
+    return (
+        <div>
+            <h1>Hi from React</h1>
+            <ShoppingList />
+        </div>
+    )
+}
 const reactElement = document.querySelector('.root');
 ReactDOM.render(<App />, reactElement)

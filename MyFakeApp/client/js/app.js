@@ -1,21 +1,19 @@
+import { createPostDiv, displayError } from "./ui.js";
 import { fetchData } from "./data.js";
-import { createPostDiv } from "./ui.js";
-
-// import {
-//     Post
-// } from './post.js'
-
-
 
 const init = () => {
 
     fetchData()
-        .then(posts => {
-            createPostsDiv(posts);
+        .then(function (post) {
+            // console.log(post);
+            createPostDiv(post);
         })
-        .catch((err) => {
-            throw (err)
-        })
+    // .then(posts => {
+    //     createPostDiv(posts);
+    // })
+    // .catch(err => {
+    //     showError()
+    // })
 
 }
 
