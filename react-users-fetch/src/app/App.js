@@ -14,12 +14,21 @@ class App extends Component {
     }
 
   }
-
+//feature4
   handleState = (event) => {
     event.preventDefault();
     // this.setState({ displayCard: (this.state.displayCard) ? false : true })
     this.setState({displayCard: !this.state.displayCard})
     this.setState({displayGrid: !this.state.displayGrid})
+  }
+  //Feature5
+  refreshdata = () => {
+    userService
+    .fetchUsers().then(Userlist =>{
+      this.setState({
+        users: Userlist
+      })
+    })
   }
 
   componentDidMount() {
