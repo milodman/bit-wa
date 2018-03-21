@@ -13,12 +13,12 @@ class Search extends Component{
     }
     render = () => {
         return (
-        <div className="nav-wrapper">
+        <div className="nav-wrapper container">
         <form>
           <div className="input-field ">
             <input value={this.state.value} onChange={this.handleChange} id="search" type="search" required placeholder="search"/>
             <label className="label-icon" ><i className="material-icons">search</i></label>
-            <i className="material-icons">close</i>
+           
           </div>
         </form>
       </div>
