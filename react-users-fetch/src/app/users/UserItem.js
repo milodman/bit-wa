@@ -1,8 +1,8 @@
-import props from "./UserList"
+
 import React from 'react';
 const UserItem = (props) => {
     const { name, email, img, dob,gender} = props
-    //console.log(gender);
+    // console.log(props);
 
     const emailHide = email => {
         const monkey = email.indexOf("@");

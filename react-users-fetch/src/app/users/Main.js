@@ -1,4 +1,4 @@
-import {data} from "../App"
+
 import React from 'react';
 import UsersList from "./UserList"
 

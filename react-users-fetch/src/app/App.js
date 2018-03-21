@@ -3,6 +3,7 @@ import Header from './partials/Header'
 import Footer from './partials/Footer'
 import Main from './users/Main'
 import { userService } from './../service/UserService'
+import Search from "./partials/Search"
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends Component {
       users: [],
       displayCard: false,
       displayGrid: false,
+      searchValue:[]
   
     }
 
@@ -28,8 +30,8 @@ class App extends Component {
     // this.setState({ displayCard: (this.state.displayCard) ? false : true })
     const displayCard= !this.state.displayCard;
     const displayGrid= !this.state.displayGrid
-    this.state.displayCard = localStorage.setItem("display", displayCard);
-    this.state.displayGrid = localStorage.setItem("icon", displayGrid)
+    this.setState.displayCard = localStorage.setItem("display", displayCard);
+    this.setState.displayGrid = localStorage.setItem("icon", displayGrid)
     this.setState({displayCard})
     this.setState({displayGrid})
   }
@@ -59,11 +61,24 @@ class App extends Component {
       })
   }
 
+  onSearchValueChange = (searchValue) => { 
+    this.setState({searchValue:searchValue})  
+  }
+
+  getUsers = ()=>{
+    const {users} = this.state
+    const filterUsers = users.filter((user) =>{  
+      return (user.name.first || user.name.last).includes(this.state.searchValue);
+    })
+    return filterUsers
+  }
+
   render() {
     return (
       <div>
         <Header handleState={this.handleState} displayGrid = {this.state.displayGrid} refreshData= {this.refreshData} />
-        <Main data={this.state.users} displayCard={this.state.displayCard} />
+        <Search onSearchValueChange={this.onSearchValueChange}/>
+        <Main data={this.getUsers()} displayCard={this.state.displayCard} />
         <Footer />
       </div>
     );

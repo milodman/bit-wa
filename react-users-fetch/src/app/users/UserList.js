@@ -1,4 +1,4 @@
-import { data } from "./Main"
+
 import UserItem from "./UserItem"
 import UserCard from "./UserCard"
 import React from 'react';

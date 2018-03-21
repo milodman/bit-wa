@@ -1,4 +1,4 @@
-import props from "./UserList"
+
 import React from 'react';
 
 const UserCard = props => {
@@ -24,7 +24,7 @@ if(gender==="female"){
             <div className="col s12 m4">
                 <div className="card">
                     <div className="card-image">
-                        <img src={img}/>
+                        <img src={img} alt =""/>
                         <span className="card-title">{name}</span>
                     </div>
                     <div className="card-content #ffcdd2 red lighten-4">
@@ -41,7 +41,7 @@ if(gender==="female"){
             <div className="col s12 m4">
                 <div className="card">
                     <div className="card-image">
-                        <img src={img}/>
+                        <img src={img} alt = ""/>
                         <span className="card-title">{name}</span>
                     </div>
                     <div className="card-content">
