@@ -10,24 +10,45 @@ class App extends Component {
     this.state = {
       users: [],
       displayCard: false,
-      displayGrid: false
+      displayGrid: false,
+  
     }
 
   }
 //feature4
+  // handleState = (event) => {
+  //   event.preventDefault();
+  //   // this.setState({ displayCard: (this.state.displayCard) ? false : true })
+  //   this.setState({displayCard: !this.state.displayCard})
+  //   this.setState({displayGrid: !this.state.displayGrid})
+  // }
+
   handleState = (event) => {
     event.preventDefault();
     // this.setState({ displayCard: (this.state.displayCard) ? false : true })
-    this.setState({displayCard: !this.state.displayCard})
-    this.setState({displayGrid: !this.state.displayGrid})
+    const displayCard= !this.state.displayCard;
+    const displayGrid= !this.state.displayGrid
+    this.state.displayCard = localStorage.setItem("display", displayCard);
+    this.state.displayGrid = localStorage.setItem("icon", displayGrid)
+    this.setState({displayCard})
+    this.setState({displayGrid})
+  }
+  
+  
+  componentWillMount(){
+    const displayCard = localStorage.getItem("display");
+    const displayGrid = localStorage.getItem("icon")
+    const card = displayCard === "false"?false:true;
+    const icon = displayGrid === "false"?false:true;
+    this.setState({displayCard:card})
+    this.setState({displayGrid:icon})
+    
   }
   //Feature5
-  refreshdata = () => {
-    userService
-    .fetchUsers().then(Userlist =>{
-      this.setState({
-        users: Userlist
-      })
+  refreshData = (event) => {
+    event.preventDefault();
+    userService.fetchUsers().then(Userlist =>{
+      this.setState({ users: Userlist})
     })
   }
 
@@ -41,7 +62,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header handleState={this.handleState} displayGrid = {this.state.displayGrid} />
+        <Header handleState={this.handleState} displayGrid = {this.state.displayGrid} refreshData= {this.refreshData} />
         <Main data={this.state.users} displayCard={this.state.displayCard} />
         <Footer />
       </div>
@@ -52,3 +73,24 @@ class App extends Component {
 
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

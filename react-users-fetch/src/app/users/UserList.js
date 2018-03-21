@@ -6,11 +6,12 @@ import React from 'react';
 const UsersList = ({ data, displayCard }) => {
     //console.log("Data userlist", data);
     const userList = () => {
-       return data.map((user, index) => <UserItem key={index} name={user.name.first + " " + user.name.last}  email={user.email} img={user.picture.large} dob={user.dob} />)
+       return data.map((user, index) => <UserItem key={index} gender={user.gender} name={user.name.first + " " + user.name.last}  email={user.email} img={user.picture.large} dob={user.dob} />)
+      
     }
 
     const userCard = () => {
-     return   data.map((user,index) => <UserCard key={index} name={user.name.first + " " + user.name.last} email={user.email} img = {user.picture.large} dob={user.dob} />)
+     return   data.map((user,index) => <UserCard key={index} gender={user.gender} name={user.name.first + " " + user.name.last} email={user.email} img = {user.picture.large} dob={user.dob} />)
     }
     
     return (
